@@ -1,0 +1,23 @@
+name: Deploy Bucket
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+      - name: Deploy
+        run: |
+          python aula2/github_actions/deploy.py
