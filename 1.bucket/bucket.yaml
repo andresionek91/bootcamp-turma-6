@@ -1,0 +1,32 @@
+Resources:
+
+  BucketBeliscoS3:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: bucket-belisco-0921
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+      Tags:
+        - Key: exemplo
+          Value: por que o Edson pediu
+        - Key: owner
+          Value: data-engineering
+        - Key: service
+          Value: airflow
+
+  Bucket2BeliscoS3:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: segundo-bucket-belisco-turma-6
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: False
+        BlockPublicPolicy: False
+        IgnorePublicAcls: False
+        RestrictPublicBuckets: False
